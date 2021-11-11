@@ -6,6 +6,7 @@ import Hearts from '../views/Hearts';
 import Feed from '../views/Feed';
 import User from '../views/User';
 import Login from '../views/Login';
+import Post from '../views/Post';
 
 export default function Routes() {
   return (
@@ -14,6 +15,8 @@ export default function Routes() {
       <Route exact path="/login" component={Login} />
       <Route exact path="/browse" component={Browse} />
       <Route exact path="/create" component={Create} />
+      <Route exact path="/edit/:key" component={Create} />
+      <Route exact path="/posts/:key" component={Post} />
       <Route exact path="/hearts" component={Hearts} />
       <Route exact path="/sham/:uid" component={User} />
     </Switch>
