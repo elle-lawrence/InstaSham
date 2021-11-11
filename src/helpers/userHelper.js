@@ -11,7 +11,4 @@ const getUserByUid = async (uid) => {
   return response;
 };
 
-export {
-  getUserByUid,
-  getCurrentUsersUid,
-};
+export { getUserByUid, getCurrentUsersUid };
