@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PostGrid, ProfileInfo } from '../components/instasham-design-system';
+import { getCurrentUsersUid, getUserByUid } from '../helpers/userHelper';
 import POSTJSON from '../sample_json/posts.json';
 
 export default function User() {
+  useEffect(() => {
+    let isMounted = true;
+    console.warn(getCurrentUsersUid());
+    getUserByUid(getCurrentUsersUid()).then((userInfo) => { if (isMounted) console.warn(userInfo); });
+    return () => { isMounted = false; };
+  }, []);
+
   return (
     <>
-      <h2>ProfileInfo</h2>
       <ProfileInfo
         postsCount={10}
         followerCount={10}
@@ -15,7 +22,6 @@ export default function User() {
         isUser={false}
       />
 
-      <h2>PostGrid</h2>
       <PostGrid posts={Object.values(POSTJSON)} />
     </>
   );
