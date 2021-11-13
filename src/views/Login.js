@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Spinner } from 'reactstrap';
-import firebase from 'firebase/app';
+import { signInUser } from '../helpers/userHelper';
 
 export default function Login({ user }) {
-  const signInUser = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider);
-  };
-
   return (
     <>
       {user === null ? (

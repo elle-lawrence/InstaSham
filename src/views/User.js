@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { PostGrid, ProfileInfo } from '../components/instasham-design-system';
-import { getCurrentUsersUid, getUserByUid } from '../helpers/userHelper';
+import { getCurrentUsersUid, getUserByUid, signOutUser } from '../helpers/userHelper';
 import POSTJSON from '../sample_json/posts.json';
 
 export default function User() {
@@ -21,6 +21,9 @@ export default function User() {
         bio="asdasdasdasd"
         isUser={false}
       />
+      <button type="button" className="btn-danger btn" onClick={signOutUser}>
+        <i className="fas fa-sign-out-alt" />
+      </button>
 
       <PostGrid posts={Object.values(POSTJSON)} />
     </>
